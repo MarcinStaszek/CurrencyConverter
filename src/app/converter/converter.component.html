@@ -1,24 +1,24 @@
 <form>
-  <div class="form-group text-center">
-    <label for="number-input">Put amount you want to convert</label>
-      <input class="form-control" type="number" id="number-input" name="amount" [(ngModel)] = "amount">
-    </div>
-  <div class="form-group text-center">
-    <select required [(ngModel)]="inputRate" name="inputRate">
-      <option selected="selected" disabled>Choose input currency</option>
+  <div class="form-group text-center"> Choose input currency
+    <select class="text-center" required [(ngModel)]="inputCurrency" name="inputCurrency">
+      <option selected="selected" disabled>input currency</option>
       <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency }}</option>
     </select>
   </div>
   <div class="form-group text-center">
-    <select required [(ngModel)]="outputRate" name="outputRate">
-      <option selected="selected" disabled>Choose output currency</option>
+    <label for="number-input">Enter amount</label>
+      <input class="form-control text-center" type="number" id="number-input" name="amount" [(ngModel)] = "amount">
+  </div>
+  <div class="form-group text-center"> Choose output currency
+    <select class="text-center" required [(ngModel)]="outputCurrency" name="outputCurrency">
+      <option selected="selected" disabled>output currency</option>
       <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency }}</option>
     </select>
   </div>
   <div class="form-group text-center">
     <button class="btn btn-primary" (click)="calculate()">Calculate</button>
   </div>
-  <div class="form-group text-center">
-    Result: {{result}}
+  <div class="form-group text-center alert alert-success" *ngIf="result">
+    Result: {{result.toFixed(2)}} {{outputCurrency}}
   </div>
 </form>
