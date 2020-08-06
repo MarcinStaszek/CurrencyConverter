@@ -1,20 +1,24 @@
-<app-shexta-header></app-shexta-header>
+<app-shexta-header></app-shexta-header> -->
 
 <!-- Full Page Image Header with Vertically Centered Content -->
-<header class="masthead">
+<ng-container *ngIf="routeHidden">
+  <header class="masthead">
     <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12 text-center">
-        <h1 class="bg-text">Welcome to Currency Calculator</h1>
+      <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+          <h1 class="bg-text">Welcome to Currency Calculator</h1>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- Page Content -->
-<section class="py-5" >
-  <div class="container" id="converter">
-    <app-shexta-converter></app-shexta-converter>
-  </div>
-</section>
+  <!-- Page Content -->
+  <section class="py-5">
+    <div class="container" id="converter">
+      <app-shexta-converter></app-shexta-converter>
+    </div>
+  </section>
+</ng-container>
+
+<router-outlet></router-outlet>
 <app-shexta-footer></app-shexta-footer>
